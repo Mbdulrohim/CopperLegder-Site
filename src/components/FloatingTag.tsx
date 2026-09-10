@@ -1,57 +1,85 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function FloatingTag() {
   const [activeIdx, setActiveIdx] = useState(0);
+  const [isFading, setIsFading] = useState(false);
 
-  const notes = [
+  const items = [
     {
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80',
-      name: 'Sara',
-      message: 'hey team - do we thi',
-      fullMessage: 'hey team - do we reconcile batch #408 before Friday close?',
-      timestamp: 'Just now',
-    },
-    {
+      sector: 'Schools',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80',
-      name: 'Marcus',
-      message: 'debit line verified',
-      fullMessage: 'debit line verified against Stripe Connect webhook',
-      timestamp: '2m ago',
+      name: 'Dr. Adeleke',
+      message: 'student tracking sync: 100%',
     },
     {
-      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&auto=format&fit=crop&q=80',
-      name: 'Elena',
-      message: 'agent ledger sync: 0.2ms',
-      fullMessage: 'agent ledger sync completed in 0.2ms with zero skew',
-      timestamp: '5m ago',
+      sector: 'Hospitals',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80',
+      name: 'Amaka',
+      message: 'patient care workflow active',
+    },
+    {
+      sector: 'Gadgets',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80',
+      name: 'Tunde',
+      message: 'inventory oversight: 0 skew',
     },
   ];
 
-  const current = notes[activeIdx];
+  const current = items[activeIdx];
 
-  const toggleNext = () => {
-    setActiveIdx((prev) => (prev + 1) % notes.length);
+  const handleManualNext = () => {
+    if (isFading) return;
+    setIsFading(true);
+    setTimeout(() => {
+      setActiveIdx((prev) => (prev + 1) % items.length);
+      setIsFading(false);
+    }, 180);
   };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIsFading(true);
+      setTimeout(() => {
+        setActiveIdx((prev) => (prev + 1) % items.length);
+        setIsFading(false);
+      }, 200);
+    }, 3200);
+
+    return () => clearInterval(timer);
+  }, [items.length]);
 
   return (
     <div className="flex justify-center mb-10">
+      {/* Eyebrow container: borderless and transparent */}
       <div
-        onClick={toggleNext}
-        title="Click to cycle live team activity"
-        className="group inline-flex items-center gap-2 bg-white/90 hover:bg-white border border-[#e7e5e4] shadow-[0_2px_12px_-3px_rgba(0,0,0,0.06)] rounded-full pl-1.5 pr-4 py-1.5 cursor-pointer transition-all duration-200 hover:shadow-md hover:border-[#d6d3d1] select-none"
+        onClick={handleManualNext}
+        title="Click to cycle sectors"
+        className="group inline-flex items-center justify-center h-10 select-none cursor-pointer"
       >
-        <img
-          src={current.avatar}
-          alt={current.name}
-          className="w-7 h-7 rounded-full object-cover ring-1 ring-black/5"
-          referrerPolicy="no-referrer"
-        />
-        <span className="text-sm font-medium text-[#1c1917]">
-          {current.name}
-        </span>
-        <div className="bg-[#f5f5f4] group-hover:bg-[#f0ede6] text-[#44403c] text-xs px-2.5 py-1 rounded-full font-mono flex items-center gap-1 transition-colors">
-          <span>{current.message}</span>
-          <span className="w-1.5 h-3 bg-[#1c1917] inline-block animate-pulse opacity-60 ml-0.5" />
+        {/* Only the item inside transitions */}
+        <div
+          className={`flex items-center gap-2.5 transition-all duration-200 ${
+            isFading ? 'opacity-0 translate-y-1' : 'opacity-100 translate-y-0'
+          }`}
+        >
+          {/* Avatar and name grouped tighter */}
+          <div className="flex items-center gap-1.5 shrink-0">
+            <img
+              src={current.avatar}
+              alt={current.name}
+              className="w-5 h-5 rounded-full object-cover ring-1 ring-black/5 shrink-0"
+              referrerPolicy="no-referrer"
+            />
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#1c1917] shrink-0">
+              {current.sector}
+            </span>
+          </div>
+
+          {/* Message badge (no separating dot) */}
+          <div className="bg-[#f0ede6]/70 group-hover:bg-[#f0ede6] text-[#44403c] text-xs px-2.5 py-1 rounded-full font-mono flex items-center gap-1 transition-colors shrink-0">
+            <span>{current.message}</span>
+            <span className="w-1.5 h-3 bg-[#1c1917] inline-block animate-pulse opacity-60 ml-0.5" />
+          </div>
         </div>
       </div>
     </div>

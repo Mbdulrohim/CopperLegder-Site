@@ -19,7 +19,7 @@ export default function App() {
 
       {/* Main Single Scroll Editorial Section */}
       <main className="flex-1">
-        <Manifesto />
+        <Manifesto onOpenAccess={() => setIsAccessModalOpen(true)} />
       </main>
 
       {/* Minimal Footer */}

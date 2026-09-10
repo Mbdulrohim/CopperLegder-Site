@@ -1,6 +1,6 @@
 {
-  "name": "Copper Ledger",
-  "description": "The modern ledger platform for continuous financial truth and autonomous teams, by Copper Ledger, Inc.",
+  "name": "CopperLedger",
+  "description": "At CopperLedger, we are a software consortium giving forward-thinking Nigerian businesses a definitive avenue to demand success from their future.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

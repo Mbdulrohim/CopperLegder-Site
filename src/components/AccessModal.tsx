@@ -53,10 +53,10 @@ export function AccessModal({ isOpen, onClose }: AccessModalProps) {
               <Check className="w-6 h-6" />
             </div>
             <h3 className="font-editorial text-2xl font-medium text-[#1c1917]">
-              Invitation Requested
+              Message Received
             </h3>
             <p className="text-sm text-[#78716c] max-w-sm mx-auto leading-relaxed">
-              Thank you, <span className="text-[#1c1917] font-medium">{name || 'there'}</span>. We have logged your request for <span className="text-[#1c1917] font-medium">{company || 'your team'}</span> into the Copper Ledger Alpha queue.
+              Thank you, <span className="text-[#1c1917] font-medium">{name || 'there'}</span>. We have received your inquiry for <span className="text-[#1c1917] font-medium">{company || 'your team'}</span> and will get in touch promptly.
             </p>
             <div className="pt-4">
               <button
@@ -64,7 +64,7 @@ export function AccessModal({ isOpen, onClose }: AccessModalProps) {
                 onClick={handleReset}
                 className="bg-[#1c1917] hover:bg-[#292524] text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all cursor-pointer"
               >
-                Return to manifesto
+                Return to home
               </button>
             </div>
           </div>
@@ -72,14 +72,14 @@ export function AccessModal({ isOpen, onClose }: AccessModalProps) {
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#e7e5e4] text-xs font-mono text-[#78716c] mb-3">
               <Sparkles className="w-3.5 h-3.5 text-[#c27803]" />
-              PRIVATE ACCESS
+              GET IN TOUCH
             </div>
 
             <h3 className="font-editorial text-2xl sm:text-3xl font-medium text-[#1c1917] mb-2">
-              Request Copper Ledger Alpha
+              Contact CopperLedger
             </h3>
             <p className="text-sm text-[#78716c] mb-6">
-              Access the next-generation general ledger engine built for software-native enterprise and autonomous agents.
+              Partner with our software consortium to engineer tailored software and digital platforms for your business.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -127,17 +127,17 @@ export function AccessModal({ isOpen, onClose }: AccessModalProps) {
 
               <div>
                 <label className="block text-xs font-mono uppercase tracking-wider text-[#57534e] mb-1.5">
-                  Primary Interest
+                  Primary Sector
                 </label>
                 <select
                   value={useCase}
                   onChange={(e) => setUseCase(e.target.value)}
                   className="w-full bg-white border border-[#d6d3d1] focus:border-[#1c1917] rounded-xl px-3.5 py-2.5 text-sm text-[#1c1917] outline-none transition-all"
                 >
-                  <option value="Continuous Close">Continuous Close & Real-Time Balancing</option>
-                  <option value="Autonomous Agent Spend">Autonomous Agent Spend & Attestation</option>
-                  <option value="ERP Replacement">Modern Replacement for Legacy ERP</option>
-                  <option value="Developer API">High-Throughput Ledger API</option>
+                  <option value="Schools">Schools: Administration & Student Tracking</option>
+                  <option value="Hospitals">Hospitals: Patient Care Workflows</option>
+                  <option value="Gadgets">Gadgets & Retail: Inventory Management Systems</option>
+                  <option value="Enterprise Apps">Custom Enterprise Web & Mobile Applications</option>
                 </select>
               </div>
 
@@ -146,13 +146,13 @@ export function AccessModal({ isOpen, onClose }: AccessModalProps) {
                   type="submit"
                   className="w-full bg-[#1c1917] hover:bg-[#292524] text-white py-3 rounded-full text-sm font-medium transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm group"
                 >
-                  <span>Submit Request</span>
+                  <span>Contact Us</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </button>
               </div>
 
               <p className="text-[11px] text-[#a8a29e] text-center pt-1">
-                Zero spam. Guaranteed confidential onboarding.
+                Relentless speed, an obsession with quality, and unyielding scalability.
               </p>
             </form>
           </div>
