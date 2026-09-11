@@ -20,7 +20,7 @@ export function Manifesto({ onOpenAccess }: ManifestoProps) {
 
       {/* Content Column with Right-Gutter Footnote */}
       <div className="max-w-[680px] mx-auto px-6 sm:px-8 relative">
-        <div className="space-y-7 text-[17px] sm:text-[18px] leading-[1.78] text-[#555555] tracking-[1px] font-sans font-normal">
+        <div className="space-y-7 text-[17px] sm:text-[18px] leading-[1.78] text-[#777777] tracking-[0.5px] font-inter font-normal">
           {/* Paragraph 1 with Drop Cap */}
           <p className="drop-cap">
             At CopperLedger, we are a software consortium giving forward-thinking Nigerian businesses a definitive avenue to demand success from their future. We build digital interfaces and intelligent software engineered to help enterprises accurately measure, interpret, and manage the metrics that drive growth. For <span className="font-medium text-[#1c1917]">schools</span>, our platforms streamline administration and student tracking to directly elevate academic performance. For <span className="font-medium text-[#1c1917]">hospitals</span>, our systems optimize patient care workflows to guarantee that every client is promptly and thoroughly catered to. For <span className="font-medium text-[#1c1917]">gadgets</span> and electronics vendors, we provide transparent oversight to monitor every unit of inventory and ensure end consumers receive an exceptional experience. Across every sector, our objective is to anchor day-to-day operations to clear, measurable outcomes that define modern industry.
@@ -43,7 +43,7 @@ export function Manifesto({ onOpenAccess }: ManifestoProps) {
             <aside className="lg:absolute lg:left-full lg:ml-12 lg:top-0 lg:w-[280px] mt-8 lg:mt-0 pt-4 lg:pt-0 border-t lg:border-t-0 border-[#e7e5e4]">
               <div className="text-[12px] sm:text-[13px] leading-[1.55] text-[#78716c] font-sans bg-[#f7f5ef]/80 lg:bg-transparent p-3 lg:p-0 rounded-lg lg:rounded-none">
                 <span className="font-editorial font-bold text-[#1c1917] mr-1">1</span>
-                <span>Sam Afolabi, “Copper Ledger: Deliberate Engineering,” </span>
+                <span>CopperLedger Team, “Deliberate Engineering,” </span>
                 <span className="italic">New Ontologies</span>
                 <span>, 2026</span>
               </div>
