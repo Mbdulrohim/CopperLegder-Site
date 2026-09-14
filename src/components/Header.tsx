@@ -26,7 +26,7 @@ export function Header({ onOpenAccess }: HeaderProps) {
             onClick={onOpenAccess}
             className="group flex items-center gap-2 bg-[#1c1917] hover:bg-[#292524] active:scale-[0.98] text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-sm cursor-pointer"
           >
-            <span>Contact Us</span>
+            <span>Contact us</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
           </button>
         </div>
@@ -37,7 +37,8 @@ export function Header({ onOpenAccess }: HeaderProps) {
         <button
           type="button"
           onClick={onOpenAccess}
-          title="Contact Us"
+          title="Contact us"
+          aria-label="Contact us"
           className="bg-[#1c1917] hover:bg-[#292524] text-[#fbbf24] p-2.5 rounded-l-md shadow-lg border-l border-y border-[#292524] transition-transform hover:-translate-x-1 cursor-pointer flex items-center justify-center"
         >
           <Sparkles className="w-5 h-5 animate-pulse" />

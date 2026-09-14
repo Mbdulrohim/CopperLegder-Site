@@ -1,0 +1,15 @@
+# Cloudflare Pages. The build runs Vite, prerenders the page with react-dom's
+# server renderer, then writes sitemap/robots/llms into the same directory.
+#
+# `name` must match the Pages project — including its spelling, which is
+# "copperlegder-site". Project-scoped wrangler commands fail against any other.
+name = "copperlegder-site"
+compatibility_date = "2026-08-01"
+pages_build_output_dir = "dist"
+
+# The same database Control and suite.ng use. The contact form writes one row
+# into `waitlist` per enquiry, and that is all this site does with it.
+[[d1_databases]]
+binding = "copper-ledger"
+database_name = "copper-ledger"
+database_id = "c13332c9-cbfa-4b4b-835b-69184d306b68"

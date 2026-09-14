@@ -1,10 +1,18 @@
 import copperLedgerWm from '../assets/CopperLedger WM.svg';
+import { site } from '../content/site';
 
+/**
+ * The large wordmark, and the lines a registered company owes its website.
+ *
+ * It read "© 2026 Copper Ledger, Inc. All rights reserved." Copper Ledger is a
+ * limited company in Nigeria, not an American Inc., and CAMA requires the
+ * registration number here. The Terms, Privacy and Security links pointed at
+ * anchors that did not exist, so they are gone until the pages do.
+ */
 export function Footer() {
   return (
     <footer className="border-t border-[#e7e5e4] bg-[#faf9f5] font-sans">
       <div className="max-w-7xl mx-auto px-6 sm:px-10">
-        {/* Big Wordmark Display (0.85x scaled) */}
         <div className="pt-14 pb-10 sm:pt-20 sm:pb-14 flex items-center justify-center">
           <a href="/" className="w-full flex justify-center focus:outline-none group">
             <img
@@ -15,26 +23,31 @@ export function Footer() {
           </a>
         </div>
 
-        {/* Bottom Bar: Terms on one side, Copyright on the other */}
         <div className="border-t border-[#e7e5e4]/80 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#78716c]">
           <div className="flex items-center gap-6">
-            <a href="#terms" className="hover:text-[#1c1917] transition-colors">
-              Terms of Service
+            <a href={site.suiteUrl} className="hover:text-[#1c1917] transition-colors">
+              Suite
             </a>
-            <a href="#privacy" className="hover:text-[#1c1917] transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#security" className="hover:text-[#1c1917] transition-colors">
-              Security
+            <a href={`mailto:${site.email}`} className="hover:text-[#1c1917] transition-colors">
+              {site.email}
             </a>
           </div>
 
-          <div>
-            © 2026 Copper Ledger, Inc. All rights reserved.
+          <div className="text-center sm:text-right space-y-1">
+            {/* The year is the build's; a page prerendered in December still hydrates in January. */}
+            <p suppressHydrationWarning>
+              © {new Date().getFullYear()} {site.legalName}. RC {site.rcNumber}. {site.city}, Nigeria.
+            </p>
+            <p>
+              Built by{' '}
+              <a href={site.author.url} rel="author" className="hover:text-[#1c1917] transition-colors">
+                {site.author.name}
+              </a>
+              .
+            </p>
           </div>
         </div>
       </div>
     </footer>
   );
 }
-
