@@ -41,23 +41,23 @@ export const pages = {
   },
   '/work/': {
     title: 'Work | Copper Ledger',
-    description: 'Suite and custom software built by Copper Ledger for businesses in Nigeria and beyond.',
+    description: 'Suite and custom software built by Copper Ledger for businesses in Nigeria and other countries.',
   },
   '/capabilities/': {
     title: 'Capabilities | Copper Ledger',
-    description: 'Business systems, web applications, mobile applications and long-term product work by Copper Ledger.',
+    description: 'Copper Ledger designs, builds and maintains business systems, web apps and mobile apps.',
   },
   '/team/': {
     title: 'Team | Copper Ledger',
-    description: 'The product and engineering team behind Copper Ledger, Suite and its custom business software.',
+    description: 'Meet the people who build Copper Ledger, Suite and its custom software.',
   },
   '/notes/': {
     title: 'Notes | Copper Ledger',
-    description: 'Notes from Copper Ledger about building dependable software for real businesses.',
+    description: 'Notes from Copper Ledger about building useful, reliable business software.',
   },
   '/notes/software-should-follow-the-business/': {
     title: 'Software should follow the business | Copper Ledger',
-    description: 'Why useful business software begins with the operation, its records and the people doing the work.',
+    description: 'Why good business software starts with the work people already do.',
   },
   '/contact/': {
     title: 'Contact | Copper Ledger',
