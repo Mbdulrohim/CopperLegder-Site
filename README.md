@@ -1,8 +1,9 @@
-# Copper Ledger — copperledgerhq.com
+# Copper Ledger, copperledgerhq.com
 
 The website of **Copper Ledger LTD** (RC 9819163), a software company in Lagos.
-One page: what the company makes — Suite — and builds for other businesses, and
-a contact form that sends each enquiry into Copper Ledger Control.
+A small, editorial portfolio site: what the company makes in Suite, the custom
+software it builds for other businesses, and a contact form that sends each
+enquiry into Copper Ledger Control.
 
 ## Stack
 
@@ -39,9 +40,9 @@ before it.
 | Path | What it holds |
 | --- | --- |
 | `src/content/site.ts` | Every fact the site states: name, RC number, email, title, description, JSON-LD and `llms.txt`. Change a fact here, once. |
-| `src/components/Manifesto.tsx` | The page copy and the margin note |
+| `src/components/Pages.tsx` | The home, work and capabilities pages |
 | `src/components/FloatingTag.tsx` | The rotating line above the headline |
-| `src/components/AccessModal.tsx` | The contact form |
+| `src/components/ContactForm.tsx` | The enquiry form on `/contact/` |
 | `functions/api/enquiry.ts` | Receives the form and writes the lead |
 | `scripts/prerender.mjs`, `scripts/seo.mjs` | The build steps after Vite |
 | `public/` | Favicons and the 1200×630 share image |

@@ -1,10 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Newsreader", Garamond, Georgia, "Times New Roman", serif;
+  --font-serif: "Bricolage Grotesque", "Arial Narrow", Arial, sans-serif;
   --font-sans: "Inter", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-lato: "Lato", sans-serif;
 }
 
 body {
@@ -15,28 +14,91 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.font-editorial {
-  font-family: "Newsreader", Garamond, Georgia, serif;
+html {
+  scroll-behavior: smooth;
 }
 
-.font-lato {
-  font-family: "Lato", sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.font-editorial {
+  font-family: "Bricolage Grotesque", "Arial Narrow", Arial, sans-serif;
+  font-weight: 500;
 }
 
 .font-inter {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Custom drop cap */
-.drop-cap::first-letter {
-  float: left;
-  font-family: "Newsreader", Garamond, Georgia, serif;
-  font-size: 4.25rem;
-  line-height: 0.82;
-  padding-top: 4px;
-  padding-right: 12px;
-  padding-bottom: 0px;
-  color: #1c1917;
-  font-weight: 500;
+.article-copy {
+  color: #57534e;
+  font-size: 1.0625rem;
+  line-height: 1.85;
 }
 
+.article-copy p + p {
+  margin-top: 1.5rem;
+}
+
+.article-copy h2 {
+  margin-top: 4rem;
+  margin-bottom: 1.25rem;
+  color: #1c1917;
+  font-family: "Bricolage Grotesque", "Arial Narrow", Arial, sans-serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.article-copy .article-lead {
+  color: #1c1917;
+  font-family: "Bricolage Grotesque", "Arial Narrow", Arial, sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+@keyframes system-dash {
+  to { stroke-dashoffset: -64; }
+}
+
+@keyframes system-node-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes system-ring-drift {
+  0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.75; }
+  50% { transform: rotate(5deg) scale(1.02); opacity: 1; }
+}
+
+@keyframes system-signal-pulse {
+  0%, 100% { transform: scale(0.7); opacity: 0.35; box-shadow: 0 0 0 0 rgba(194, 120, 3, 0.25); }
+  50% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 9px rgba(194, 120, 3, 0); }
+}
+
+.system-connector {
+  fill: none;
+  stroke: #c27803;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 5 11;
+  animation: system-dash 8s linear infinite;
+}
+
+.system-connector-delay-1 { animation-delay: -2s; }
+.system-connector-delay-2 { animation-delay: -4s; }
+.system-connector-delay-3 { animation-delay: -6s; }
+.system-node { animation: system-node-float 7s ease-in-out infinite; }
+.system-ring { animation: system-ring-drift 11s ease-in-out infinite; }
+.system-ring-reverse { animation-direction: reverse; animation-duration: 14s; }
+.system-signal { animation: system-signal-pulse 3.5s ease-in-out infinite; }
+.system-signal-delay { animation-delay: -1.75s; }

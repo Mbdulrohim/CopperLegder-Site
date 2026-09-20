@@ -22,12 +22,47 @@ export const site = {
   city: 'Lagos',
   suiteUrl: 'https://suite.ng',
   /** 30–60 chars. */
-  title: 'Copper Ledger — software a business runs on',
+  title: 'Copper Ledger. Software a business runs on.',
   /** 110–160 chars, a real sentence. */
   description:
-    'Copper Ledger is a Nigerian software company. It makes Suite for stores, schools and hospitals, and builds websites, apps and custom software.',
+    'Copper Ledger builds Suite and custom business software, web applications and mobile applications from Lagos, Nigeria.',
   ogImage: '/og.png',
-  author: { name: 'mbdulrohim', url: 'https://mbdulrohim.dev' },
+  author: { name: 'Abdulrohim Mustapha', url: 'https://mbdulrohim.dev' },
+  founders: [
+    { name: 'Abdulrohim Mustapha', role: 'Co-founder', initials: 'AM', url: null },
+    { name: 'Samsudeen Afolabi', role: 'Co-founder', initials: 'SA', url: null },
+  ],
+} as const;
+
+export const pages = {
+  '/': {
+    title: site.title,
+    description: site.description,
+  },
+  '/work/': {
+    title: 'Work | Copper Ledger',
+    description: 'Suite and custom software built by Copper Ledger for businesses in Nigeria and beyond.',
+  },
+  '/capabilities/': {
+    title: 'Capabilities | Copper Ledger',
+    description: 'Business systems, web applications, mobile applications and long-term product work by Copper Ledger.',
+  },
+  '/team/': {
+    title: 'Team | Copper Ledger',
+    description: 'The product and engineering team behind Copper Ledger, Suite and its custom business software.',
+  },
+  '/notes/': {
+    title: 'Notes | Copper Ledger',
+    description: 'Notes from Copper Ledger about building dependable software for real businesses.',
+  },
+  '/notes/software-should-follow-the-business/': {
+    title: 'Software should follow the business | Copper Ledger',
+    description: 'Why useful business software begins with the operation, its records and the people doing the work.',
+  },
+  '/contact/': {
+    title: 'Contact | Copper Ledger',
+    description: 'Talk to Copper Ledger about Suite, a web application, a mobile application or custom business software.',
+  },
 } as const;
 
 /** Organization, WebSite and the product it makes — enough to be quoted, not just indexed. */
@@ -43,6 +78,12 @@ export const jsonLd = {
       email: site.email,
       logo: `${site.url}/apple-touch-icon.png`,
       foundingDate: site.incorporated,
+      founder: site.founders.map((founder) => ({
+        '@type': 'Person',
+        name: founder.name,
+        jobTitle: founder.role,
+        ...(founder.url ? { url: founder.url } : {}),
+      })),
       address: { '@type': 'PostalAddress', addressLocality: site.city, addressCountry: 'NG' },
       identifier: { '@type': 'PropertyValue', name: 'RC number', value: site.rcNumber },
     },
@@ -89,6 +130,11 @@ export const llms = (): string => `# ${site.name}
 ## What it builds
 
 Websites, mobile apps and custom software for other businesses.
+
+## Read
+
+- [Notes](${site.url}/notes/): writing about dependable software and the businesses it supports.
+- [Software should follow the business](${site.url}/notes/software-should-follow-the-business/)
 
 ## Contact
 

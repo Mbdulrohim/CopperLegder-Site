@@ -8,16 +8,18 @@ import { pathToFileURL } from 'node:url';
 
 const DIST = 'dist';
 const today = new Date().toISOString().slice(0, 10);
-const { site, llms } = await import(pathToFileURL(path.resolve('dist-ssr/entry-server.js')).href);
+const { site, pages, llms } = await import(pathToFileURL(path.resolve('dist-ssr/entry-server.js')).href);
+
+const urls = Object.keys(pages).map((route) => `  <url>
+    <loc>${site.url}${route}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>${route === '/' ? '1.0' : '0.8'}</priority>
+  </url>`).join('\n');
 
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${site.url}/</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+${urls}
 </urlset>
 `);
 

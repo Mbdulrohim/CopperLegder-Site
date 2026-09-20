@@ -23,17 +23,20 @@ export function Footer() {
           </a>
         </div>
 
-        <div className="border-t border-[#e7e5e4]/80 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#78716c]">
-          <div className="flex items-center gap-6">
-            <a href={site.suiteUrl} className="hover:text-[#1c1917] transition-colors">
-              Suite
-            </a>
+        <div className="border-t border-[#e7e5e4]/80 py-8 grid md:grid-cols-3 items-center gap-6 text-xs text-[#78716c]">
+          <nav aria-label="Footer" className="flex items-center justify-center md:justify-start gap-6">
+            <a href="/work/" className="hover:text-[#1c1917] transition-colors">Work</a>
+            <a href="/team/" className="hover:text-[#1c1917] transition-colors">Team</a>
+            <a href="/notes/" className="hover:text-[#1c1917] transition-colors">Notes</a>
+            <a href="/contact/" className="hover:text-[#1c1917] transition-colors">Contact</a>
+          </nav>
+          <div className="text-center">
             <a href={`mailto:${site.email}`} className="hover:text-[#1c1917] transition-colors">
               {site.email}
             </a>
           </div>
 
-          <div className="text-center sm:text-right space-y-1">
+          <div className="text-center md:text-right space-y-1">
             {/* The year is the build's; a page prerendered in December still hydrates in January. */}
             <p suppressHydrationWarning>
               © {new Date().getFullYear()} {site.legalName}. RC {site.rcNumber}. {site.city}, Nigeria.

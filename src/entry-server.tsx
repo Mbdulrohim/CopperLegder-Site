@@ -8,6 +8,6 @@
 import { renderToString } from 'react-dom/server';
 import App from './App.tsx';
 
-export { site, jsonLd, llms } from './content/site.ts';
+export { site, pages, jsonLd, llms } from './content/site.ts';
 
-export const render = (): string => renderToString(<App />);
+export const render = (path = '/'): string => renderToString(<App path={path} />);
